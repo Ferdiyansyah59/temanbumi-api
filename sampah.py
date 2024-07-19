@@ -16,9 +16,11 @@ class ResNet(nn.Module):
         super().__init__()
         # Use a pretrained model
         self.network = models.resnet50(weights='ResNet50_Weights.DEFAULT')
+        self.dropout = nn.Dropout(p=0.5)
         # Replace last layer
         num_ftrs = self.network.fc.in_features
-        self.network.fc = nn.Linear(num_ftrs, len(classes))
+        self.network.fc = nn.Linear(num_ftrs, len(classes))\
+        
 
     def forward(self, xb):
         return torch.sigmoid(self.network(xb))
