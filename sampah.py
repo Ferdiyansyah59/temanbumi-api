@@ -24,11 +24,10 @@ class ResNet(nn.Module):
 
     def forward(self, xb):
         return torch.sigmoid(self.network(xb))
-
 model = ResNet()
 
 # Load the state_dict into the model
-model.load_state_dict(torch.load("sampah199.pth", map_location='cpu'))
+model.load_state_dict(torch.load("sampah1991.pth", map_location='cpu'))
 model.eval()  # Set model to evaluation mode
 
 def predict_image(img, model):
