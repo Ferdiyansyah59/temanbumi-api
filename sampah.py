@@ -26,7 +26,7 @@ class ResNet(nn.Module):
 model = ResNet()
 
 # Load the state_dict into the model
-model.load_state_dict(torch.load("sampah.pth", map_location='cpu'))
+model.load_state_dict(torch.load("sampah99.pth", map_location='cpu'))
 model.eval()  # Set model to evaluation mode
 
 def predict_image(img, model):
