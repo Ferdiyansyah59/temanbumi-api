@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: python-app
+    container_name: temanbumi-app
+    restart: unless-stopped
+    ports:
+      - "5001:8080"
+    environment:
+      PORT: 8080
+    volumes:
+      - .:/app
+    networks:
+      - temanbumi
+
+networks:
+  temanbumi:
+    driver: bridge
